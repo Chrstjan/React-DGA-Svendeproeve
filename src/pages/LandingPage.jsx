@@ -53,7 +53,7 @@ export const LandingPage = () => {
   }
 
   if (error) {
-    return <h2>Error getting data, try again</h2>;
+    return <h2>Fejl i at hente data, prøv igen</h2>;
   }
 
   return (
