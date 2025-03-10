@@ -2,12 +2,51 @@
 @use "../../styles/variables" as *;
 @use "../../styles/placeholders";
 
+.sectionHeader {
+    border-top: 4px solid $green;
+    margin: 0rem 1rem;
+}
+
 .wrapperStyling {
+    img {
+        width: 100%;
+    }
+
     &.iconContainer {
         @include m.flexBox(column, center, center, 1rem);
 
         img {
             width: 8vw;
+        }
+    }
+
+    &.infoImage {
+        margin: 1rem 1rem 0rem 1rem;
+
+        figure {
+            position: relative;
+            width: 82vw;
+
+            img {
+                display: block;
+                height: 30vh;
+                width: 100%;
+                object-fit: cover;
+            }
+
+            figcaption {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: $white;
+                text-align: center;
+                padding: 1rem;
+
+                p {
+                    width: 300px;
+                }
+            }
         }
     }
 }

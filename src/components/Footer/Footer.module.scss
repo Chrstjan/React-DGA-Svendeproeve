@@ -5,6 +5,7 @@
 .footerStyling {
     @include m.flexBox(column, center, flex-start, 1rem);
     background: $light-green;
+    margin-top: 3rem;
 
     div {
         header {

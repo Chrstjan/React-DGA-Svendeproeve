@@ -1,0 +1,38 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as *;
+@use "../../styles/placeholders";
+
+.cardStyling {
+    @include m.flexBox(column, center, center, 0rem);
+
+    img {
+        width: 100%;
+    }
+
+    &:hover {
+        .captionStyling {
+            display: block;
+            width: 100%;
+            background: $light-green;
+            color: $white;
+            text-align: center;
+            margin-top: -3rem;
+        }
+    }
+
+    .captionStyling {
+        display: none;
+    }
+
+    .topStyling {
+        background: $light-green;
+        width: 100%;
+        
+        a {
+            color: $white;
+            p {
+                text-align: center;
+            }
+        }
+    }
+}

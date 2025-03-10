@@ -28,7 +28,7 @@ export const Footer = () => {
                 <h2>FN´s Verdensmål</h2>
             </header>
             <p>Vi støtter på organisatorisk plan op om FN´s verdensmål og har derfor besluttet at en del af overskuddet går direkte til verdensmål nr. 13; Klimahandling</p>
-            <a>Læs mere om verdensmålene her</a>
+            <a href="https://www.verdensmaalene.dk/maal" target="_blank">Læs mere om verdensmålene her</a>
         </div>
     </footer>
   )

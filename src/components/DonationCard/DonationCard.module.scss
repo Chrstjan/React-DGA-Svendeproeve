@@ -1,0 +1,25 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as *;
+@use "../../styles/placeholders";
+
+.donationCard {
+    display: block;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 99vw;
+    margin: 0;
+    color: $white;
+    padding: 1rem;
+    margin-bottom: 2rem;
+
+    .moneyStyling {
+        color: $light-green;
+    }
+
+    &.toDate {
+        background-image: url("./banner_image2.jpg");
+    }
+    &.thisYear {
+        background-image: url("./banner_image3.jpg");
+    }
+}
