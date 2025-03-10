@@ -1,0 +1,54 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as *;
+@use "../../styles/placeholders";
+
+.formStyling {
+  @include m.flexBox(column, center, center, 1rem);
+  margin-bottom: 4rem;
+
+  .inputContainer {
+    position: relative;
+    @include m.flexBox(column, center, center, 0.2rem);
+
+    label {
+      align-self: flex-start;
+    }
+
+    input {
+      padding: 0.4rem 2rem 0.4rem 0.5rem;
+    }
+
+    img {
+      width: 6vw;
+      position: absolute;
+      bottom: 7%;
+      right: 2%;
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .linkStyling {
+    margin: 0;
+    margin-left: 4.5rem;
+    align-self: flex-start;
+    width: 200px;
+
+    a {
+      color: $green;
+    }
+  }
+
+  .buttonContainer {
+    align-self: flex-end;
+    margin-right: 4.5rem;
+    input {
+      background: $green;
+      border: 0;
+      color: $white;
+      padding: 0.5rem 2rem;
+    }
+  }
+}
