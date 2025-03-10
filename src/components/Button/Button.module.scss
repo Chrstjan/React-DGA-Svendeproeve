@@ -1,0 +1,12 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as *;
+@use "../../styles/placeholders";
+
+.buttonStyling {
+    &.createButton {
+        background: $light-green;
+        color: $white;
+        padding: 1rem;
+        border: 0;
+    }
+}

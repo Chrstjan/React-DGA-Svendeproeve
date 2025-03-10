@@ -1,0 +1,29 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as *;
+@use "../../styles/placeholders";
+
+.footerStyling {
+    @include m.flexBox(column, center, flex-start, 1rem);
+    background: $light-green;
+
+    div {
+        header {
+            h2 {
+                color: $white;
+            }
+        }
+
+        .inputContainer {
+            input {
+                padding: 0.4rem 1.5rem;
+            }
+            input[type="submit"] {
+                background: $green;
+                color: $white;
+                border: 0;
+                font-size: 15px;
+                padding: 0.4rem 0.5rem;
+            }
+        }
+    }
+}

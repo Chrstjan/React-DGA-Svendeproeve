@@ -1,0 +1,13 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as *;
+@use "../../styles/placeholders";
+
+.wrapperStyling {
+    &.iconContainer {
+        @include m.flexBox(column, center, center, 1rem);
+
+        img {
+            width: 8vw;
+        }
+    }
+}

@@ -1,0 +1,18 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as *;
+@use "../../styles/placeholders";
+
+.logoStyling {
+    background: $green;
+    width: fit-content;
+    height: 9vh;
+    color: $white;
+    margin: 0rem 1rem;
+
+    span {
+        background: $white;
+        border: 1px solid $green;
+        height: 9vh;
+        color: $green;
+    }
+}

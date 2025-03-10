@@ -1,0 +1,9 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as *;
+@use "../../styles/placeholders";
+
+.headerStyling {
+    @include m.flexBox(column, center, center, 1rem);
+    background: $white;
+    padding-top: 1rem;
+}
