@@ -1,0 +1,16 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as *;
+@use "../../styles/placeholders";
+
+.formStyling {
+  @include m.flexBox(column, center, center, 1rem);
+  @extend %inputContainer;
+  @extend %buttonContainer;
+  p {
+    margin: 0;
+  }
+
+  .checkboxContainer {
+    @include m.flexBox(column, center, center, 1rem);
+  }
+}
