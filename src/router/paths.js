@@ -1,6 +1,8 @@
 import { CategoryPage } from "../pages/CategoryPage";
+import { CreateProductPage } from "../pages/CreateProductPage";
 import { LandingPage } from "../pages/LandingPage";
 import { LoginPage } from "../pages/LoginPage";
+import { MyAccountPage } from "../pages/MyAccountPage";
 import { PageNotFound } from "../pages/PageNotFound";
 import { ProductDetailsPage } from "../pages/ProductDetailsPage";
 import { SignUpPage } from "../pages/SignUpPage";
@@ -38,4 +40,15 @@ export const paths = [
   },
 ];
 
-export const protectedPaths = [];
+export const protectedPaths = [
+  {
+    path: "/profile",
+    element: MyAccountPage,
+    id: 1,
+  },
+  {
+    path: "/create",
+    element: CreateProductPage,
+    id: 2,
+  },
+];

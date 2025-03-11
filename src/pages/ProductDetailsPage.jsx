@@ -3,6 +3,7 @@ import { Wrapper } from "../components/Wrapper/Wrapper";
 import { CategoriesList } from "../components/CategoriesList/CategoriesList";
 import { useFetch } from "../hooks/useFetch";
 import { ProductCard } from "../components/ProductCard/ProductCard";
+import { ProductDetailsCard } from "../components/ProductDetailsCard/ProductDetailsCard";
 
 export const ProductDetailsPage = () => {
   const { productSlug } = useParams();
@@ -25,10 +26,8 @@ export const ProductDetailsPage = () => {
       <Wrapper>
         <CategoriesList />
       </Wrapper>
-      <Wrapper>
-        {[data && data?.data.length > 0] ? (
-          <ProductCard data={[data?.data]} productDetails />
-        ) : null}
+      <Wrapper headerType="noTop">
+        {data ? <ProductDetailsCard data={data?.data} /> : null}
       </Wrapper>
     </>
   );

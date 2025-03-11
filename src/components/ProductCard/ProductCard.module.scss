@@ -3,36 +3,43 @@
 @use "../../styles/placeholders";
 
 .cardStyling {
-    @include m.flexBox(column, center, center, 0rem);
+  @include m.flexBox(column, center, flex-start, 0rem);
 
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &:hover {
     img {
-        width: 100%;
-    }
-
-    &:hover {
-        .captionStyling {
-            display: block;
-            width: 100%;
-            background: $light-green;
-            color: $white;
-            text-align: center;
-            margin-top: -3rem;
-        }
+      border: 4px solid $green;
     }
 
     .captionStyling {
-        display: none;
+      display: block;
+      width: 100%;
+      background: $light-green;
+      color: $white;
+      text-align: center;
+      border: 4px solid $green;
+      border-top: 0;
+      margin-top: -3rem;
     }
+  }
 
-    .topStyling {
-        background: $light-green;
-        width: 100%;
-        
-        a {
-            color: $white;
-            p {
-                text-align: center;
-            }
-        }
+  .captionStyling {
+    display: none;
+  }
+
+  .topStyling {
+    background: $light-green;
+    width: 100%;
+
+    a {
+      color: $white;
+      p {
+        text-align: center;
+      }
     }
+  }
 }

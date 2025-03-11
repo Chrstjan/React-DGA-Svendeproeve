@@ -1,0 +1,7 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as *;
+@use "../../styles/placeholders";
+
+.detailStyling {
+  @include m.flexBox(column, center, flex-start, 0rem);
+}

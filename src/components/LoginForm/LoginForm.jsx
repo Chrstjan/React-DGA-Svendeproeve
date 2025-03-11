@@ -42,11 +42,12 @@ export const LoginForm = () => {
     });
 
     const userData = await res.json();
-    console.log(userData);
+    console.log(userData?.data);
 
     if (userData) {
-      loginUser(userData);
+      loginUser(userData?.data);
       notify(true);
+      navigate("/profile");
     } else {
       notify(false);
     }

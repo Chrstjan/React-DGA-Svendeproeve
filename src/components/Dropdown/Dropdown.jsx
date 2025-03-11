@@ -1,19 +1,23 @@
 import { useNavigate } from "react-router-dom";
 import { useFetch } from "../../hooks/useFetch";
 
-export const Dropdown = ({ defaultText, canNavigate }) => {
+export const Dropdown = ({
+  defaultText,
+  canNavigate,
+  creatingProduct,
+  setProductCategory,
+}) => {
   const { data, isLoading, error } = useFetch(
     "http://localhost:4242/categories"
   );
   const navigate = useNavigate();
 
   const handleCategorySelect = (e) => {
-    console.log(e);
     navigate(`/category/${e}`);
   };
 
-  const handleCreateProduct = () => {
-    console.log("test");
+  const handleCreateProduct = (e) => {
+    setProductCategory(e);
   };
 
   return (
@@ -31,7 +35,10 @@ export const Dropdown = ({ defaultText, canNavigate }) => {
       )}
       {data?.data.map((item) => {
         return (
-          <option key={item?.id} value={item?.slug}>
+          <option
+            key={item?.id}
+            value={creatingProduct ? item?.id : item?.slug}
+          >
             {item?.name}
           </option>
         );

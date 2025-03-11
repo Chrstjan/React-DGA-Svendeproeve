@@ -29,7 +29,7 @@ export const CategoryPage = () => {
       <Wrapper>
         <CategoriesList />
       </Wrapper>
-      <Wrapper type="categoryProduct">
+      <Wrapper type="categoryProduct" headerType="noTop">
         {data && data?.data?.length > 0 ? (
           <ProductCard data={data?.data} categoryProduct />
         ) : (

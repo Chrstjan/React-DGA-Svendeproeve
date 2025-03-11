@@ -1,0 +1,19 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as *;
+@use "../../styles/placeholders";
+
+.formStyling {
+  @include m.flexBox(column, center, center, 1rem);
+
+  .inputContainer {
+    @include m.flexBox(column, center, center, 0.2rem);
+
+    label {
+      align-self: flex-start;
+    }
+
+    input {
+      padding: 0.4rem 2rem 0.4rem 0.5rem;
+    }
+  }
+}

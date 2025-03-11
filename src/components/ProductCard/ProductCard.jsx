@@ -1,20 +1,11 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import s from "./ProductCard.module.scss";
 
-export const ProductCard = ({
-  data,
-  topHeader,
-  categoryProduct,
-  productDetails,
-}) => {
+export const ProductCard = ({ data, topHeader, categoryProduct }) => {
   const navigate = useNavigate();
 
-  const handleCategoryClick = (slug) => {
-    navigate(`/category/${slug}`);
-  };
-
-  const handleProductClick = (slug) => {
-    navigate(`/product/${slug}`);
+  const handleProductClick = (endpoint, slug) => {
+    navigate(`/${endpoint}/${slug}`);
   };
 
   return (
@@ -24,8 +15,8 @@ export const ProductCard = ({
           <figure
             onClick={() =>
               topHeader
-                ? handleCategoryClick(item?.slug)
-                : handleProductClick(item?.slug)
+                ? handleProductClick("category", item?.slug)
+                : handleProductClick("product", item?.slug)
             }
             className={s.cardStyling}
             key={item?.id}
@@ -40,18 +31,17 @@ export const ProductCard = ({
             <img src={item?.image || item?.category_image} />
             {!topHeader ? (
               <figcaption className={s.captionStyling}>
-                {!productDetails || !categoryProduct ? (
+                {!categoryProduct ? (
                   <p>{item?.name}</p>
                 ) : (
                   <p>Pris: {item?.price} kr</p>
                 )}
               </figcaption>
             ) : null}
-            {categoryProduct || productDetails ? (
+            {categoryProduct ? (
               <div>
                 <h3>{item?.name}</h3>
                 <p>{item?.description}</p>
-                {productDetails ? <h3>Pris: {item?.price} kr</h3> : null}
               </div>
             ) : null}
           </figure>
