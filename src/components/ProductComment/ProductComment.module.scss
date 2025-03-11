@@ -1,0 +1,41 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as *;
+@use "../../styles/placeholders";
+
+.customerStyling {
+  @include m.flexBox(column, flex-end, center, 0.5rem);
+
+  p {
+    margin: 0;
+    align-self: flex-end;
+  }
+}
+
+.ownerStyling {
+  @include m.flexBox(column, flex-start, center, 0.5rem);
+
+  p {
+    margin: 0;
+    align-self: flex-start;
+  }
+
+  .deleteStyling {
+    align-self: flex-end;
+  }
+}
+
+.commentContainer {
+  background: $white;
+  border: 2px solid $light-green;
+  padding: 0.3rem 0.7rem;
+  width: 200px;
+
+  p {
+    max-width: 250px;
+  }
+}
+
+.deleteStyling {
+  align-self: flex-end;
+  color: $red;
+}

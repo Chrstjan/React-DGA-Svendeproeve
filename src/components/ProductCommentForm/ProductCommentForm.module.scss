@@ -1,0 +1,21 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as *;
+@use "../../styles/placeholders";
+
+.formStyling {
+  @include m.flexBox(column, center, center, 1rem);
+  @extend %inputContainer;
+  @extend %buttonContainer;
+  margin-top: 2rem;
+  p {
+    margin: 0;
+  }
+
+  textarea {
+    width: 50vw;
+  }
+
+  .buttonContainer {
+    margin-right: 4rem;
+  }
+}
