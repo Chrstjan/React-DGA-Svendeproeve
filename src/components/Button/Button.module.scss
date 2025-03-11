@@ -3,10 +3,19 @@
 @use "../../styles/placeholders";
 
 .buttonStyling {
-    &.createButton {
-        background: $light-green;
-        color: $white;
-        padding: 1rem;
-        border: 0;
-    }
+  &.createButton {
+    background: $light-green;
+    color: $white;
+    padding: 1rem;
+    border: 0;
+  }
+
+  &.accountBtn {
+    background: $green;
+    text-align: center;
+    width: 50vw;
+    border: 0;
+    color: $white;
+    padding: 0.7rem;
+  }
 }

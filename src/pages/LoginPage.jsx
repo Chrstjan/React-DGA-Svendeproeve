@@ -5,7 +5,7 @@ import { Wrapper } from "../components/Wrapper/Wrapper";
 export const LoginPage = () => {
   return (
     <>
-      <Wrapper text="Velkommen tilbage">
+      <Wrapper headerType="formHeader" text="Velkommen tilbage">
         <LoginForm />
       </Wrapper>
       <Wrapper type="infoImage">

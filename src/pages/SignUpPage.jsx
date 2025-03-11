@@ -5,7 +5,7 @@ import { DonationCard } from "../components/DonationCard/DonationCard";
 export const SignUpPage = () => {
   return (
     <>
-      <Wrapper text="Opret en konto">
+      <Wrapper headerType="formHeader" text="Opret en konto">
         <SignUpForm />
       </Wrapper>
       <Wrapper type="infoImage">

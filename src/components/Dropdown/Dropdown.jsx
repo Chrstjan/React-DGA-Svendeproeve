@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useFetch } from "../../hooks/useFetch";
+import s from "./Dropdown.module.scss";
 
 export const Dropdown = ({
   defaultText,
@@ -27,6 +28,10 @@ export const Dropdown = ({
           ? handleCategorySelect(e.target.value)
           : handleCreateProduct(e.target.value)
       }
+      className={`${s.dropdownStyling} ${
+        creatingProduct ? s.createStyling : s.dropdownStyling
+      }`}
+      required
     >
       {data?.data?.length === 0 ? (
         <option defaultValue>Ingen kategorier fundet</option>

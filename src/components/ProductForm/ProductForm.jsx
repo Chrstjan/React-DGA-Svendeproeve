@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Dropdown } from "../Dropdown/Dropdown";
 import s from "./ProductForm.module.scss";
@@ -8,7 +7,6 @@ import { UserContext } from "../../context/UserContext";
 
 export const ProductForm = () => {
   const { user } = useContext(UserContext);
-  const navigate = useNavigate();
   const [productCategory, setProductCategory] = useState("");
 
   const {
@@ -56,13 +54,11 @@ export const ProductForm = () => {
       body: JSON.stringify(formData),
     });
 
-    const userData = await res.json();
-    console.log(userData?.data);
+    const productData = await res.json();
+    console.log(productData);
 
-    if (userData) {
-      loginUser(userData?.data);
+    if (productData) {
       notify(true);
-      navigate("/profile");
     } else {
       notify(false);
     }
@@ -108,8 +104,8 @@ export const ProductForm = () => {
                 message: "Invalid description format",
               },
               minLength: {
-                value: 20,
-                message: "description must be at least 5 characters",
+                value: 10,
+                message: "description must be at least 10 characters",
               },
             })}
             id="description"
