@@ -3,11 +3,10 @@ import { useForm } from "react-hook-form";
 import { UserContext } from "../../context/UserContext";
 import { toast } from "react-toastify";
 import s from "./AccountForm.module.scss";
-import { useFetch } from "../../hooks/useFetch";
 import { Button } from "../Button/Button";
 
 export const AccountForm = () => {
-  const { user } = useContext(UserContext);
+  const { user, logoutUser } = useContext(UserContext);
   const [users, setUsers] = useState({});
 
   console.log(user);
@@ -77,6 +76,28 @@ export const AccountForm = () => {
       notify(true);
     } else {
       notify(false);
+    }
+  };
+
+  const handleDeleteUser = async () => {
+    const res = await fetch("http://localhost:4242/users", {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${user?.access_token}`,
+      },
+    });
+
+    if (!res.ok) {
+      console.error("Fejl i at slette bruger");
+    }
+
+    const deleteData = await res.json();
+    console.log(deleteData);
+
+    if (
+      deleteData.message == "User and related products deleted successfully"
+    ) {
+      logoutUser();
     }
   };
 
@@ -224,7 +245,11 @@ export const AccountForm = () => {
           </span>
         </div>
         <span className={s.buttonContainer}>
-          <Button text="slet profil" />
+          <Button
+            action={() => handleDeleteUser()}
+            type="deleteBtn"
+            text="slet profil"
+          />
           <input type="submit" value="gem ændringer" />
         </span>
       </form>

@@ -4,7 +4,11 @@ import { UserContext } from "../../context/UserContext";
 import { toast } from "react-toastify";
 import s from "./ProductCommentForm.module.scss";
 
-export const ProductCommentForm = ({ productId, setCommentCreation }) => {
+export const ProductCommentForm = ({
+  productId,
+  setCommentCreation,
+  ownerId,
+}) => {
   const { user } = useContext(UserContext);
 
   const {
@@ -68,7 +72,11 @@ export const ProductCommentForm = ({ productId, setCommentCreation }) => {
             })}
             id="comment"
             name="comment"
-            placeholder="Skriv en besked til sælger"
+            placeholder={
+              user?.user?.id == ownerId
+                ? "Skriv en besked til forspørgelser"
+                : "Skriv en besked til sælger....."
+            }
           />
         </span>
         {errors.username ? <p>{errors.username.message}</p> : null}

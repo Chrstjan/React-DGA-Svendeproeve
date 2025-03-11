@@ -3,28 +3,34 @@
 @use "../../styles/placeholders";
 
 .footerStyling {
-    @include m.flexBox(column, center, flex-start, 1rem);
-    background: $light-green;
-    margin-top: 3rem;
+  @include m.flexBox(column, center, center, 1rem);
+  padding: 0rem 1rem;
+  background: $light-green;
+  margin-top: 3rem;
 
-    div {
-        header {
-            h2 {
-                color: $white;
-            }
-        }
+  a {
+    color: $white;
+  }
 
-        .inputContainer {
-            input {
-                padding: 0.4rem 1.5rem;
-            }
-            input[type="submit"] {
-                background: $green;
-                color: $white;
-                border: 0;
-                font-size: 15px;
-                padding: 0.4rem 0.5rem;
-            }
-        }
+  div {
+    header {
+      h2 {
+        color: $white;
+        text-align: left;
+      }
     }
+
+    .inputContainer {
+      input {
+        padding: 0.4rem 1.5rem;
+      }
+      input[type="submit"] {
+        background: $green;
+        color: $white;
+        border: 0;
+        font-size: 15px;
+        padding: 0.4rem 0.5rem;
+      }
+    }
+  }
 }

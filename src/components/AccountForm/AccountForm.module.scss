@@ -5,12 +5,36 @@
 .formStyling {
   @include m.flexBox(column, center, center, 1rem);
   @extend %inputContainer;
-  @extend %buttonContainer;
+  margin-top: 2rem;
   p {
     margin: 0;
   }
 
   .checkboxContainer {
     @include m.flexBox(column, center, center, 1rem);
+
+    span {
+      @include m.flexBox(column, center, center, 0.5rem);
+      padding: 0rem 1rem;
+
+      input {
+        outline: 1px solid $light-green;
+      }
+
+      input:checked {
+        outline: 1px solid $light-green;
+      }
+    }
+  }
+
+  .buttonContainer {
+    @include m.flexBox(column, center, center, 1rem);
+
+    input {
+      background: $green;
+      border: 0;
+      color: $white;
+      padding: 0.5rem 1rem;
+    }
   }
 }

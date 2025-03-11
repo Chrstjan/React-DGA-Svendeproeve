@@ -3,14 +3,14 @@
 @use "../../styles/placeholders";
 
 .donationCard {
-  display: block;
+  @include m.flexBox(column, center, center, 0.5rem);
   background-size: cover;
   background-repeat: no-repeat;
-  width: 99vw;
+  width: 80vw;
+  padding: 1rem;
   margin: 0;
   color: $white;
-  padding: 1rem;
-  margin-bottom: 2rem;
+  margin: 2rem 0rem 2rem 1rem;
 
   .moneyStyling {
     color: $light-green;
@@ -23,8 +23,34 @@
 
   &.toDate {
     background-image: url("./banner_image2.jpg");
+
+    h2,
+    h3 {
+      margin: 0;
+    }
+
+    header {
+      align-self: flex-start;
+
+      h2 {
+        text-align: left;
+      }
+    }
   }
   &.thisYear {
     background-image: url("./banner_image3.jpg");
+
+    h2,
+    h3 {
+      margin: 0;
+    }
+
+    header {
+      align-self: flex-start;
+
+      h2 {
+        text-align: left;
+      }
+    }
   }
 }

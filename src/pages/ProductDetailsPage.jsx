@@ -48,6 +48,7 @@ export const ProductDetailsPage = () => {
           <ProductCommentForm
             productId={data?.data?.id}
             setCommentCreation={setCommentCreation}
+            ownerId={data?.data?.owner?.id}
           />
         ) : null}
       </Wrapper>
