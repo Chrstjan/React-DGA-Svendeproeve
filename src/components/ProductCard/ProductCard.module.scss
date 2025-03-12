@@ -5,9 +5,28 @@
 .cardStyling {
   @include m.flexBox(column, center, flex-start, 0rem);
 
+  &:hover {
+    cursor: pointer;
+  }
+
+  @media (min-width: 1200px) {
+    height: 25vh;
+    width: 40vw;
+
+    @media (min-width: 1400px) {
+      height: 25vh;
+      width: 25vw;
+    }
+  }
+
   img {
     width: 100%;
     object-fit: cover;
+
+    @media (min-width: 1200px) {
+      height: 200px;
+      object-fit: fill;
+    }
   }
 
   &:hover {
@@ -34,6 +53,10 @@
   .topStyling {
     background: $light-green;
     width: 100%;
+
+    @media (min-width: 1200px) {
+      width: 100%;
+    }
 
     a {
       color: $white;

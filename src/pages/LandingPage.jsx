@@ -57,7 +57,7 @@ export const LandingPage = () => {
 
   return (
     <>
-      <Wrapper text="Udvalgte Produkter">
+      <Wrapper type="cardsContainer" text="Udvalgte Produkter">
         {products && products.length > 0 ? (
           <ProductCard data={products} />
         ) : null}
@@ -71,7 +71,7 @@ export const LandingPage = () => {
               Avis"
         />
       </Wrapper>
-      <Wrapper text="Populære Kategorier">
+      <Wrapper type="cardsContainer" text="Populære Kategorier">
         {categories && categories.length > 0 ? (
           <ProductCard data={categories} topHeader />
         ) : null}

@@ -49,6 +49,15 @@
     }
   }
 
+  &.cardsContainer {
+    @include m.flexBox(column, center, center, 1rem);
+
+    @media (min-width: 1200px) {
+      flex-direction: row;
+      margin: 0rem 1rem;
+    }
+  }
+
   &.rowWrapper {
     @include m.flexBox(column, center, center, 1rem);
     margin-top: 2rem;
