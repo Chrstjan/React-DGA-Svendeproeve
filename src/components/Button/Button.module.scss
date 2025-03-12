@@ -20,6 +20,10 @@
     border: 0;
     color: $white;
     padding: 0.5rem 2rem;
+
+    @media (min-width: 1200px) {
+      padding: 0.6rem 2rem;
+    }
   }
 
   &.accountBtn {
@@ -29,5 +33,9 @@
     border: 0;
     color: $white;
     padding: 0.7rem;
+
+    @media (min-width: 1200px) {
+      width: 35vw;
+    }
   }
 }

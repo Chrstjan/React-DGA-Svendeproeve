@@ -17,5 +17,9 @@
     padding: 0.3rem 0.6rem 0.3rem 0.2rem;
     outline: 0;
     border: 2px solid $light-green;
+
+    @media (min-width: 1200px) {
+      width: 44vw;
+    }
   }
 }

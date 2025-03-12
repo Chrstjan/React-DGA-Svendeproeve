@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import s from "./ProductCard.module.scss";
 
-export const ProductCard = ({ data, topHeader, categoryProduct }) => {
+export const ProductCard = ({ data, topHeader, categoryProduct, type }) => {
   const navigate = useNavigate();
 
   const handleProductClick = (endpoint, slug) => {
@@ -18,7 +18,7 @@ export const ProductCard = ({ data, topHeader, categoryProduct }) => {
                 ? handleProductClick("category", item?.slug)
                 : handleProductClick("product", item?.slug)
             }
-            className={s.cardStyling}
+            className={`${s.cardStyling} ${s[type]}`}
             key={item?.id}
           >
             {topHeader ? (
@@ -41,7 +41,7 @@ export const ProductCard = ({ data, topHeader, categoryProduct }) => {
             {categoryProduct ? (
               <div>
                 <h3>{item?.name}</h3>
-                <p>{item?.description}</p>
+                <p>{item?.description?.slice(0, 32)}...</p>
               </div>
             ) : null}
           </figure>

@@ -40,15 +40,15 @@ export const CategoryPage = () => {
 
   return (
     <>
-      <Wrapper>
+      <Wrapper type="productsListing">
         <CategoriesList />
-      </Wrapper>
-      <Wrapper type="categoryProduct" headerType="noTop">
-        {products && products?.length > 0 ? (
-          <ProductCard data={products} categoryProduct />
-        ) : (
-          <h2>Ingen annoncer i denne kategori</h2>
-        )}
+        <Wrapper type="categoryProduct" headerType="noTop">
+          {products && products?.length > 0 ? (
+            <ProductCard type="listingCard" data={products} categoryProduct />
+          ) : (
+            <h2>Ingen annoncer i denne kategori</h2>
+          )}
+        </Wrapper>
       </Wrapper>
       <Wrapper headerType="noTop">
         <Pageination

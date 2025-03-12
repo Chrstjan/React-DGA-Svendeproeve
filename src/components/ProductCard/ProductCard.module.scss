@@ -19,6 +19,19 @@
     }
   }
 
+  &.listingCard {
+    @media (min-width: 1200px) {
+      width: 20vw;
+
+      div {
+        p,
+        h3 {
+          margin: 0;
+        }
+      }
+    }
+  }
+
   img {
     width: 100%;
     object-fit: cover;

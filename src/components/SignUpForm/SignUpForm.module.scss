@@ -6,6 +6,10 @@
   @include m.flexBox(column, center, center, 1rem);
   margin-bottom: 4rem;
 
+  @media (min-width: 1200px) {
+    margin-bottom: 12rem;
+  }
+
   .inputContainer {
     @include m.flexBox(column, center, center, 0.2rem);
 
@@ -15,6 +19,14 @@
 
     input {
       padding: 0.4rem 2rem 0.4rem 0.5rem;
+      outline: 1px solid $light-green;
+      border: 1px solid $light-green;
+      background: $gray;
+
+      @media (min-width: 1200px) {
+        width: 40vw;
+        padding: 0.7rem 2rem 0.7rem 0.5rem;
+      }
     }
   }
 
@@ -24,6 +36,7 @@
 
   a {
     color: $green;
+    text-decoration: underline;
   }
 
   .linkStyling {
@@ -31,18 +44,38 @@
     margin-left: 4.5rem;
     align-self: flex-start;
     width: 200px;
+
+    @media (min-width: 1200px) {
+      align-self: center;
+      margin-right: 7rem;
+      width: fit-content;
+    }
   }
 
   .buttonContainer {
     @include m.flexBox(column, center, center, 1rem);
+
+    @media (min-width: 1200px) {
+      width: 45vw;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
     .termsContainer {
       @include m.flexBox(row, center, center, 0.5rem);
+      width: 100%;
 
-      input[type="checkbox"] {
+      @media (min-width: 1200px) {
+        justify-content: flex-start;
+        gap: 1rem;
       }
 
       label {
         width: 200px;
+
+        @media (min-width: 1200px) {
+          width: fit-content;
+        }
       }
     }
     input[type="submit"] {
@@ -51,6 +84,10 @@
       color: $white;
       padding: 0.5rem 2rem;
       align-self: flex-end;
+
+      @media (min-width: 1200px) {
+        padding: 0.7rem 2.3rem;
+      }
     }
   }
 }

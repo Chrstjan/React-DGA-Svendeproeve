@@ -58,9 +58,40 @@
     }
   }
 
+  &.productsListing {
+    @include m.flexBox(column, center, center, 1rem);
+    @media (min-width: 1200px) {
+      flex-direction: row;
+      justify-content: center;
+      gap: 0rem;
+      margin: 0rem 2rem;
+    }
+  }
+
+  &.categoryProduct {
+    @media (min-width: 1200px) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      margin-right: 2rem;
+      margin-left: -3rem;
+
+      @media (min-width: 1400px) {
+        margin: 0;
+      }
+    }
+  }
+
   &.rowWrapper {
     @include m.flexBox(column, center, center, 1rem);
     margin-top: 2rem;
+
+    @media (min-width: 1200px) {
+      flex-direction: row;
+      gap: 0;
+    }
   }
 
   &.infoImage {

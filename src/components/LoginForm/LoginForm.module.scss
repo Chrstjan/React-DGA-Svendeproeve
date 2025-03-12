@@ -6,6 +6,10 @@
   @include m.flexBox(column, center, center, 1rem);
   margin-bottom: 4rem;
 
+  @media (min-width: 1200px) {
+    margin-bottom: 16rem;
+  }
+
   .inputContainer {
     position: relative;
     @include m.flexBox(column, center, center, 0.2rem);
@@ -16,6 +20,14 @@
 
     input {
       padding: 0.4rem 2rem 0.4rem 0.5rem;
+      outline: 1px solid $light-green;
+      border: 1px solid $light-green;
+      background: $gray;
+
+      @media (min-width: 1200px) {
+        width: 40vw;
+        padding: 0.7rem 2rem 0.7rem 0.5rem;
+      }
     }
 
     img {
@@ -23,6 +35,10 @@
       position: absolute;
       bottom: 7%;
       right: 2%;
+
+      @media (min-width: 1200px) {
+        width: 2.5vw;
+      }
     }
   }
 
@@ -36,6 +52,12 @@
     align-self: flex-start;
     width: 200px;
 
+    @media (min-width: 1200px) {
+      margin-left: 20.5rem;
+      align-self: flex-start;
+      width: fit-content;
+    }
+
     a {
       color: $green;
     }
@@ -44,6 +66,10 @@
   .buttonContainer {
     align-self: flex-end;
     margin-right: 4.5rem;
+
+    @media (min-width: 1200px) {
+      margin-right: 20.5rem;
+    }
     input {
       background: $green;
       border: 0;

@@ -3,6 +3,13 @@
 @use "../../styles/placeholders";
 
 .categoriesContainer {
+  @media (min-width: 1200px) {
+    margin-left: 4rem;
+
+    @media (min-width: 1400px) {
+      margin: 0;
+    }
+  }
   ul {
     li {
       list-style: none;

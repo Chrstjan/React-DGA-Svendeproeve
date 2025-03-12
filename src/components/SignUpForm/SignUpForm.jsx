@@ -206,7 +206,7 @@ export const SignUpForm = () => {
         {errors.zipcode ? <p>{errors.zipcode.message}</p> : null}
         <p className={s.linkStyling}>
           Har du allerede en konto hos os? Klik{" "}
-          <NavLink to="/login">her</NavLink> for at vende tilbage til logn
+          <NavLink to="/login">her</NavLink> for at vende tilbage til login
         </p>
         <div className={s.buttonContainer}>
           <span className={s.termsContainer}>

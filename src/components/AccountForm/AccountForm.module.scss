@@ -6,6 +6,17 @@
   @include m.flexBox(column, center, center, 1rem);
   @extend %inputContainer;
   margin-top: 2rem;
+
+  @media (min-width: 1200px) {
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2rem 2rem 0rem 2rem;
+  }
+
+  .inputsContainer {
+    @include m.flexBox(column, center, center, 1rem);
+  }
+
   p {
     margin: 0;
   }
@@ -13,9 +24,22 @@
   .checkboxContainer {
     @include m.flexBox(column, center, center, 1rem);
 
+    .topContainer {
+      @include m.flexBox(column, center, center, 1.5rem);
+    }
+
+    @media (min-width: 1200px) {
+      justify-content: space-between;
+      gap: 6rem;
+    }
+
     span {
       @include m.flexBox(column, center, center, 0.5rem);
       padding: 0rem 1rem;
+
+      @media (min-width: 1200px) {
+        gap: 1.5rem;
+      }
 
       input {
         outline: 1px solid $light-green;
@@ -25,16 +49,37 @@
         outline: 1px solid $light-green;
       }
     }
+
+    .checkbox {
+      @include m.flexBox(column, center, center, 0.5rem);
+
+      @media (min-width: 1200px) {
+        flex-direction: row;
+
+        label {
+          width: 500px;
+        }
+      }
+    }
   }
 
   .buttonContainer {
     @include m.flexBox(column, center, center, 1rem);
+
+    @media (min-width: 1200px) {
+      justify-content: flex-end;
+      margin-left: 20rem;
+    }
 
     input {
       background: $green;
       border: 0;
       color: $white;
       padding: 0.5rem 1rem;
+
+      @media (min-width: 1200px) {
+        padding: 0.6rem 1rem;
+      }
     }
   }
 }
