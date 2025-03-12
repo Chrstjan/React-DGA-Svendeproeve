@@ -2,19 +2,20 @@ import { useContext, useEffect, useState } from "react";
 import { useFetch } from "../../hooks/useFetch";
 import { UserContext } from "../../context/UserContext";
 import s from "./ProductComment.module.scss";
+import { formatDate } from "../../helpers/formatDate";
 
-export const ProductComment = ({ productId, ownerId, commentCreation }) => {
+export const ProductComment = ({ productSlug, ownerId }) => {
   const { data, isLoading, error } = useFetch(
-    `http://localhost:4242/comment/${productId}`
+    `http://localhost:4242/products/${productSlug}`
   );
   const { user } = useContext(UserContext);
   const [comments, setComments] = useState([]);
 
-  console.log(commentCreation);
+  console.log(data);
 
   useEffect(() => {
-    if (data?.data) {
-      setComments(data?.data);
+    if (data?.data?.comments?.length > 0) {
+      setComments(data?.data?.comments);
     }
   }, [data]);
 
@@ -55,11 +56,12 @@ export const ProductComment = ({ productId, ownerId, commentCreation }) => {
               >
                 {item?.user?.id == ownerId ? (
                   <p>
-                    {item?.user?.firstname} (sælger): d. {commentCreation}
+                    {item?.user?.firstname} (sælger):{" "}
+                    {formatDate(item?.createdAt)}
                   </p>
                 ) : (
                   <p>
-                    {item?.user?.firstname}: d. {commentCreation}
+                    {item?.user?.firstname}: {formatDate(item?.createdAt)}
                   </p>
                 )}
                 <div className={s.commentContainer}>

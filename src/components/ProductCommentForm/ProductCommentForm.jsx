@@ -4,11 +4,7 @@ import { UserContext } from "../../context/UserContext";
 import { toast } from "react-toastify";
 import s from "./ProductCommentForm.module.scss";
 
-export const ProductCommentForm = ({
-  productId,
-  setCommentCreation,
-  ownerId,
-}) => {
+export const ProductCommentForm = ({ productId, ownerId }) => {
   const { user } = useContext(UserContext);
 
   const {
@@ -44,9 +40,6 @@ export const ProductCommentForm = ({
     });
 
     const commentData = await res.json();
-    const { createdAt } = { ...commentData?.data };
-
-    setCommentCreation(createdAt);
 
     if (commentData) {
       notify(true);

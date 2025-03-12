@@ -4,7 +4,7 @@ import { CategoriesList } from "../components/CategoriesList/CategoriesList";
 import { useFetch } from "../hooks/useFetch";
 import { ProductDetailsCard } from "../components/ProductDetailsCard/ProductDetailsCard";
 import { ProductCommentForm } from "../components/ProductCommentForm/ProductCommentForm";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import { ProductComment } from "../components/ProductComment/ProductComment";
 
@@ -14,7 +14,6 @@ export const ProductDetailsPage = () => {
   const { data, isLoading, error } = useFetch(
     `http://localhost:4242/products/${productSlug}`
   );
-  const [commentCreation, setCommentCreation] = useState("");
 
   console.log(data);
 
@@ -47,17 +46,15 @@ export const ProductDetailsPage = () => {
         {data && user.access_token ? (
           <ProductCommentForm
             productId={data?.data?.id}
-            setCommentCreation={setCommentCreation}
             ownerId={data?.data?.owner?.id}
           />
         ) : null}
       </Wrapper>
       <Wrapper headerType="noTop" type="rowWrapper">
-        {data && user.access_token ? (
+        {data && data?.data ? (
           <ProductComment
-            productId={data?.data?.id}
+            productSlug={productSlug}
             ownerId={data?.data?.owner?.id}
-            commentCreation={commentCreation}
           />
         ) : null}
       </Wrapper>

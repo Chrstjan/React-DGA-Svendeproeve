@@ -1,7 +1,59 @@
+import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import { Button } from "../Button/Button";
 import s from "./Footer.module.scss";
+import { useContext } from "react";
+import { UserContext } from "../../context/UserContext";
 
 export const Footer = () => {
+  const { user } = useContext(UserContext);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    mode: "all",
+  });
+
+  const notify = (success) => {
+    if (success) {
+      toast("Tilmeldt nyhedsbrev!");
+    } else {
+      toast("Noget gik galt i at tilmelde prøv igen senere");
+    }
+  };
+
+  const handleFormSubmit = async (data) => {
+    const { email } = { ...data };
+
+    const formData = {
+      email: email,
+      hasNewsletter: true,
+      hasNotification: false,
+    };
+
+    const body = new URLSearchParams();
+    body.append("email", email);
+    body.append("hasNewsletter", true);
+
+    const res = await fetch("http://localhost:4242/users", {
+      method: "PATCH",
+      headers: {
+        Authorization: `Bearer ${user?.access_token}`,
+      },
+      body: body,
+    });
+
+    const userData = await res.json();
+    console.log(userData);
+
+    if (userData) {
+      notify(true);
+    } else {
+      notify(false);
+    }
+  };
+
   return (
     <footer className={s.footerStyling}>
       <div className={s.leftContainer}>
@@ -12,10 +64,27 @@ export const Footer = () => {
           Vil du være med på den grønne front? Tilmeld dig vores nyhedsbrev og
           få de seneste klima opdateringer direkte i din indbakke
         </p>
-        <span className={s.inputContainer}>
-          <input type="email" />
-          <input type="submit" value="Tilmeld" />
-        </span>
+        <form onSubmit={handleSubmit(handleFormSubmit)}>
+          <span className={s.inputContainer}>
+            <input
+              {...register("email", {
+                required: "email is required",
+                pattern: {
+                  value:
+                    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                  message: "Invalid email format",
+                },
+                minLength: {
+                  value: 8,
+                  message: "email must be at least 8 characters",
+                },
+              })}
+              type="email"
+            />
+            {errors.email ? <p>{errors.email.message}</p> : null}
+            <input type="submit" value="Tilmeld" />
+          </span>
+        </form>
       </div>
       <div className={s.middleContainer}>
         <header>

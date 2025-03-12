@@ -4,4 +4,10 @@
 
 .detailStyling {
   @include m.flexBox(column, center, flex-start, 0rem);
+
+  figcaption {
+    h2 {
+      text-align: left;
+    }
+  }
 }

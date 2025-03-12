@@ -8,6 +8,8 @@ import { Button } from "../Button/Button";
 export const AccountForm = () => {
   const { user, logoutUser } = useContext(UserContext);
   const [users, setUsers] = useState({});
+  const [hasNewsletter, setHasNewsletter] = useState(false);
+  const [hasNotification, setHasNotification] = useState(false);
 
   console.log(user);
 
@@ -29,17 +31,31 @@ export const AccountForm = () => {
     getUserInfo();
   }, []);
 
-  useEffect(() => {
-    console.log(users);
-  }, [users]);
-
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({
     mode: "all",
   });
+
+  useEffect(() => {
+    console.log(users);
+    if (users) {
+      setHasNewsletter(users?.hasNewsletter || false);
+      setHasNotification(users.hasNotification || false);
+
+      reset({
+        firstname: users?.firstname || "",
+        lastname: users?.lastname || "",
+        address: users?.address || "",
+        zipcode: users?.zipcode || "",
+        phone: users?.phone || "11223344",
+        email: users?.email || "",
+      });
+    }
+  }, [users, reset]);
 
   const notify = (success) => {
     if (success) {
@@ -50,21 +66,25 @@ export const AccountForm = () => {
   };
 
   const handleFormSubmit = async (data) => {
-    const { firstname, lastname, address, zipcode, phone, email } = { ...data };
+    const { firstname, lastname, address, zipcode, email } = {
+      ...data,
+    };
 
     const formData = {
+      email: email,
       firstname: firstname,
       lastname: lastname,
       address: address,
       zipcode: zipcode,
-      phone: phone,
-      email: email,
+      hasNewsletter: hasNewsletter,
+      hasNotification: hasNotification,
     };
 
     const res = await fetch(`http://localhost:4242/users`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${user?.access_token}`,
       },
       body: JSON.stringify(formData),
     });
@@ -120,7 +140,6 @@ export const AccountForm = () => {
             type="text"
             id="firstname"
             name="firstname"
-            placeholder={users?.firstname}
           />
         </span>
         {errors.firstname ? <p>{errors.firstname.message}</p> : null}
@@ -140,7 +159,6 @@ export const AccountForm = () => {
             type="text"
             id="lastname"
             name="lastname"
-            placeholder={users?.lastname}
           />
         </span>
         {errors.lastname ? <p>{errors.lastname.message}</p> : null}
@@ -160,7 +178,6 @@ export const AccountForm = () => {
             type="text"
             id="address"
             name="address"
-            placeholder={users?.address}
           />
         </span>
         {errors.address ? <p>{errors.address.message}</p> : null}
@@ -177,10 +194,9 @@ export const AccountForm = () => {
                 message: "zipcode must be at least 4 characters",
               },
             })}
-            type="number"
-            id="address"
-            name="address"
-            placeholder={users?.zipcode}
+            type="text"
+            id="zipcode"
+            name="zipcode"
           />
         </span>
         {errors.zipcode ? <p>{errors.zipcode.message}</p> : null}
@@ -200,7 +216,6 @@ export const AccountForm = () => {
             type="number"
             id="phone"
             name="phone"
-            placeholder={users?.phone || "11223344"}
           />
         </span>
         {errors.phone ? <p>{errors.phone.message}</p> : null}
@@ -222,7 +237,6 @@ export const AccountForm = () => {
             type="email"
             id="email"
             name="email"
-            placeholder={users?.email}
           />
         </span>
         {errors.phone ? <p>{errors.phone.message}</p> : null}
@@ -233,15 +247,31 @@ export const AccountForm = () => {
               ekslusive deals og lignende promoverings-mails fra den grønne avis
               og samarbejds-parnere?
             </label>
-            <input type="checkbox" id="newsletter" name="newsletter" />
+            <input
+              {...register("newsletter")}
+              type="checkbox"
+              id="newsletter"
+              name="newsletter"
+              checked={hasNewsletter}
+              onChange={(e) => setHasNewsletter(e.target.checked)}
+            />
+            {errors.newsletter ? <p>{errors.newsletter.message}</p> : null}
           </span>
           <span>
-            <label htmlFor="newsletter">
+            <label htmlFor="notification">
               Jeg ønsker at modtage notifikationer i form af emails når der sker
               en opdatering på en af mine annoncer eller jeg modtager en ny
               henvendelse?
             </label>
-            <input type="checkbox" id="notification" name="notification" />
+            <input
+              {...register("notification")}
+              type="checkbox"
+              id="notification"
+              name="notification"
+              checked={hasNotification}
+              onChange={(e) => setHasNotification(e.target.checked)}
+            />
+            {errors.notification ? <p>{errors.notification.message}</p> : null}
           </span>
         </div>
         <span className={s.buttonContainer}>
