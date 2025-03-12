@@ -16,7 +16,6 @@ export const UserProductCard = () => {
       let userProducts = allProducts.filter((item) => {
         return item?.user_id == user?.user?.id;
       });
-      console.log(userProducts);
       setProducts(userProducts);
     }
   }, [data]);
@@ -39,14 +38,12 @@ export const UserProductCard = () => {
     }
 
     const deletedData = await res.json();
-    console.log(deletedData);
 
     if (deletedData?.message == "Product deleted succesfully") {
       let allProducts = [...products];
       let filteredProduts = allProducts.filter((item) => {
         return item?.id !== id;
       });
-      console.log(filteredProduts);
       setProducts(filteredProduts);
     }
   };

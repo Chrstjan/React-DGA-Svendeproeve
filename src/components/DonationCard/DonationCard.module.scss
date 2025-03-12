@@ -12,8 +12,26 @@
   color: $white;
   margin: 2rem 0rem 2rem 1rem;
 
+  @media (min-width: 1200px) {
+    margin-left: 0;
+    width: 40vw;
+    height: 17vh;
+  }
+
   .moneyStyling {
     color: $light-green;
+
+    @media (min-width: 1200px) {
+      align-self: flex-end;
+      padding-right: 3rem;
+    }
+  }
+
+  .footertext {
+    @media (min-width: 1200px) {
+      align-self: flex-start;
+      padding-left: 0.7rem;
+    }
   }
 
   &.info {
@@ -31,6 +49,10 @@
 
     header {
       align-self: flex-start;
+
+      @media (min-width: 1200px) {
+        padding-left: 1.5rem;
+      }
 
       h2 {
         text-align: left;

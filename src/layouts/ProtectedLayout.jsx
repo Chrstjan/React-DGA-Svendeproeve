@@ -25,18 +25,20 @@ export const ProtectedLayout = () => {
     <>
       <Header>
         <Logo />
-        <Dropdown defaultText="vælg en kategori" canNavigate />
-        <Button
-          action={() => handleButtonClick()}
-          text="Opret annonce"
-          type="createButton"
-        />
-        <Wrapper type="iconContainer">
-          <img src="/icons/icons-mail-30.png" alt="mail icon" />
-          <img src="/icons/icons-info-30.png" alt="info icon" />
-          <NavLink to="/profile">
-            <img src="/icons/icons-account-30.png" alt="account icon" />
-          </NavLink>
+        <Wrapper headerType="noTop" type="navContainer">
+          <Dropdown defaultText="vælg kategori" canNavigate />
+          <Button
+            action={() => handleButtonClick()}
+            text="opret annonce"
+            type="createButton"
+          />
+          <Wrapper headerType="noTop" type="iconContainer">
+            <img src="/icons/icons-mail-30.png" alt="mail icon" />
+            <img src="/icons/icons-info-30.png" alt="info icon" />
+            <NavLink to="/profile">
+              <img src="/icons/icons-account-30.png" alt="account icon" />
+            </NavLink>
+          </Wrapper>
         </Wrapper>
       </Header>
       <Outlet />

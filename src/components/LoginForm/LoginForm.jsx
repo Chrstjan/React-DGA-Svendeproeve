@@ -4,6 +4,7 @@ import { UserContext } from "../../context/UserContext";
 import { NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import s from "./LoginForm.module.scss";
+import { Toastbar } from "../Toastbar/Toastbar";
 
 export const LoginForm = () => {
   const { user, loginUser, logoutUser } = useContext(UserContext);
@@ -42,7 +43,6 @@ export const LoginForm = () => {
     });
 
     const userData = await res.json();
-    console.log(userData?.data);
 
     if (userData) {
       loginUser(userData?.data);
@@ -110,6 +110,7 @@ export const LoginForm = () => {
           <input type="submit" value="Login" />
         </span>
       </form>
+      <Toastbar />
     </>
   );
 };

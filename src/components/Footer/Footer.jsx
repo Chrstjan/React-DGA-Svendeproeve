@@ -81,8 +81,8 @@ export const Footer = () => {
               })}
               type="email"
             />
-            {errors.email ? <p>{errors.email.message}</p> : null}
             <input type="submit" value="Tilmeld" />
+            {errors.email ? <p>{errors.email.message}</p> : null}
           </span>
         </form>
       </div>

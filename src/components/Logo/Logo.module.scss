@@ -9,14 +9,22 @@ a {
 .logoStyling {
   background: $green;
   width: fit-content;
-  height: 9vh;
+  height: fit-content;
   color: $white;
   margin: 0rem 1rem;
 
+  h1 {
+    padding: 0.1rem 0rem 0.1rem 0.2rem;
+
+    @media (min-width: 1200px) {
+      padding: 0.11rem 0rem 0.11rem 0.2rem;
+    }
+  }
+
   span {
     background: $white;
-    border: 1px solid $green;
-    height: 9vh;
+    border: 2px solid $green;
+    height: fit-content;
     color: $green;
   }
 }

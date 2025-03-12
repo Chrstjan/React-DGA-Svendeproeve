@@ -4,14 +4,13 @@ import { UserContext } from "../../context/UserContext";
 import { toast } from "react-toastify";
 import s from "./AccountForm.module.scss";
 import { Button } from "../Button/Button";
+import { Toastbar } from "../Toastbar/Toastbar";
 
 export const AccountForm = () => {
   const { user, logoutUser } = useContext(UserContext);
   const [users, setUsers] = useState({});
   const [hasNewsletter, setHasNewsletter] = useState(false);
   const [hasNotification, setHasNotification] = useState(false);
-
-  console.log(user);
 
   useEffect(() => {
     const getUserInfo = async () => {
@@ -41,7 +40,6 @@ export const AccountForm = () => {
   });
 
   useEffect(() => {
-    console.log(users);
     if (users) {
       setHasNewsletter(users?.hasNewsletter || false);
       setHasNotification(users.hasNotification || false);
@@ -90,7 +88,6 @@ export const AccountForm = () => {
     });
 
     const userData = await res.json();
-    console.log(userData?.data);
 
     if (userData) {
       notify(true);
@@ -112,7 +109,6 @@ export const AccountForm = () => {
     }
 
     const deleteData = await res.json();
-    console.log(deleteData);
 
     if (
       deleteData.message == "User and related products deleted successfully"
@@ -283,6 +279,7 @@ export const AccountForm = () => {
           <input type="submit" value="gem ændringer" />
         </span>
       </form>
+      <Toastbar />
     </>
   );
 };

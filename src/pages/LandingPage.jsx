@@ -42,7 +42,6 @@ export const LandingPage = () => {
         data?.data[Math.floor(Math.random() * data?.data?.length)],
         data?.data[Math.floor(Math.random() * data?.data?.length)]
       );
-      console.log(popularCategories);
       setCategories(popularCategories);
     };
     getCategoryData();

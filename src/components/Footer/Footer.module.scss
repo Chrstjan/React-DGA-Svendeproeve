@@ -8,6 +8,59 @@
   background: $light-green;
   margin-top: 3rem;
 
+  @media (min-width: 1200px) {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 0rem 3rem;
+
+    .leftContainer {
+      p {
+        width: 360px;
+
+        @media (min-width: 1400px) {
+          width: 450px;
+        }
+      }
+    }
+
+    .middleContainer {
+      header {
+        h2 {
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+
+    .rightContainer {
+      header {
+        h2 {
+          margin-bottom: 2.5rem;
+        }
+      }
+      p {
+        width: 400px;
+      }
+    }
+
+    .inputContainer {
+      input {
+        padding: 0.6rem 1.5rem;
+        width: 18vw;
+        height: 2vh;
+      }
+      input[type="submit"] {
+        background: $green;
+        color: $white;
+        border: 0;
+        font-size: 15px;
+        padding: 0.4rem 0.5rem;
+        width: 7vw;
+        height: 3.9vh;
+      }
+    }
+  }
+
   a {
     color: $white;
   }

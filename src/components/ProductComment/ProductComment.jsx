@@ -11,8 +11,6 @@ export const ProductComment = ({ productSlug, ownerId }) => {
   const { user } = useContext(UserContext);
   const [comments, setComments] = useState([]);
 
-  console.log(data);
-
   useEffect(() => {
     if (data?.data?.comments?.length > 0) {
       setComments(data?.data?.comments);
@@ -32,14 +30,12 @@ export const ProductComment = ({ productSlug, ownerId }) => {
     }
 
     const data = await res.json();
-    console.log(data);
 
     if (data?.message == "Success") {
       const allComments = [...comments];
       const filteredComments = allComments.filter((item) => {
         return item?.id !== commentId;
       });
-      console.log(filteredComments);
       setComments(filteredComments);
     }
   };

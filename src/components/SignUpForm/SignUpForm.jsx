@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { UserContext } from "../../context/UserContext";
 import { NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { Toastbar } from "../Toastbar/Toastbar";
 import s from "./SignUpForm.module.scss";
 
 export const SignUpForm = () => {
@@ -49,8 +50,6 @@ export const SignUpForm = () => {
     });
 
     const userData = await res.json();
-
-    console.log(userData);
 
     if (userData) {
       notify(true);
@@ -221,6 +220,7 @@ export const SignUpForm = () => {
           <input type="submit" value="Opret" />
         </div>
       </form>
+      <Toastbar />
     </>
   );
 };

@@ -6,6 +6,10 @@
   border-top: 4px solid $green;
   margin: 0rem 1rem;
 
+  @media (min-width: 1200px) {
+    margin: 0rem 3.3rem;
+  }
+
   &.noTop {
     border: 0;
   }
@@ -20,16 +24,43 @@
     width: 100%;
   }
 
+  &.navContainer {
+    @include m.flexBox(column, center, center, 1rem);
+    @media (min-width: 1200px) {
+      flex-direction: row;
+      gap: 0rem;
+    }
+  }
+
   &.iconContainer {
     @include m.flexBox(column, center, center, 1rem);
 
     img {
       width: 8vw;
     }
+
+    @media (min-width: 1200px) {
+      flex-direction: row;
+      gap: 1.5rem;
+
+      img {
+        width: 3vw;
+      }
+    }
   }
 
   &.rowWrapper {
     @include m.flexBox(column, center, center, 1rem);
     margin-top: 2rem;
+  }
+
+  &.infoImage {
+    @include m.flexBox(column, center, center, 1rem);
+
+    @media (min-width: 1200px) {
+      flex-direction: row;
+      gap: 3.5rem;
+      margin: 0rem 1rem;
+    }
   }
 }

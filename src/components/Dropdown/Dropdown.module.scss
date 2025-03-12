@@ -1,6 +1,16 @@
 @use "../../styles/variables" as *;
 
 .dropdownStyling {
+  outline: 1px solid $green;
+  background: $gray;
+  width: 35vw;
+  height: 5vh;
+  @media (min-width: 1200px) {
+    width: 15vw;
+    height: 5.2vh;
+    padding: 0.5rem;
+  }
+
   &.createStyling {
     width: 57vw;
     height: 5vh;

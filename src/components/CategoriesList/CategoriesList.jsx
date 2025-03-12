@@ -7,8 +7,6 @@ export const CategoriesList = () => {
     "http://localhost:4242/categories"
   );
 
-  console.log(data);
-
   return (
     <div className={s.categoriesContainer}>
       <header>

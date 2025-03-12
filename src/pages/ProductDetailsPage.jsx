@@ -15,8 +15,6 @@ export const ProductDetailsPage = () => {
     `http://localhost:4242/products/${productSlug}`
   );
 
-  console.log(data);
-
   if (isLoading) {
     return <h2>loading...</h2>;
   }

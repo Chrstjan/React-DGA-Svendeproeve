@@ -20,7 +20,7 @@ export const DonationCard = ({
           <h2>{money}</h2>
         </span>
       ) : null}
-      {footertext ? <p>{footertext}</p> : null}
+      {footertext ? <p className={s.footertext}>{footertext}</p> : null}
     </figure>
   );
 };

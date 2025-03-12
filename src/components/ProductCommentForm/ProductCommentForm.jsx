@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { UserContext } from "../../context/UserContext";
 import { toast } from "react-toastify";
 import s from "./ProductCommentForm.module.scss";
+import { Toastbar } from "../Toastbar/Toastbar";
 
 export const ProductCommentForm = ({ productId, ownerId }) => {
   const { user } = useContext(UserContext);
@@ -77,6 +78,7 @@ export const ProductCommentForm = ({ productId, ownerId }) => {
           <input type="submit" value="Send" />
         </span>
       </form>
+      <Toastbar />
     </>
   );
 };

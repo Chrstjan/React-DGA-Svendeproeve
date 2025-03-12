@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import s from "./ProductDetailsCard.module.scss";
 
 export const ProductDetailsCard = ({ data }) => {
-  console.log(data);
   return (
     <figure className={s.detailStyling}>
       <img src={data?.image} />

@@ -4,6 +4,7 @@ import { Dropdown } from "../Dropdown/Dropdown";
 import s from "./ProductForm.module.scss";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../context/UserContext";
+import { Toastbar } from "../Toastbar/Toastbar";
 
 export const ProductForm = () => {
   const { user } = useContext(UserContext);
@@ -24,10 +25,6 @@ export const ProductForm = () => {
       toast("Fejl i at oprette annonce");
     }
   };
-
-  useEffect(() => {
-    console.log(productCategory);
-  }, [productCategory]);
 
   const handleFormSubmit = async (data) => {
     const { title, description, image, price } = { ...data };
@@ -55,7 +52,6 @@ export const ProductForm = () => {
     });
 
     const productData = await res.json();
-    console.log(productData);
 
     if (productData) {
       notify(true);
@@ -158,6 +154,7 @@ export const ProductForm = () => {
           <input type="submit" value="Opret" />
         </span>
       </form>
+      <Toastbar />
     </>
   );
 };

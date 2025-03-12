@@ -18,8 +18,6 @@ export const CategoryPage = () => {
   const firstProductIndex = lastProductIndex - productsPerPage;
   const [products, setProducts] = useState([]);
 
-  console.log(data);
-
   useEffect(() => {
     let currentProducts = data?.data?.slice(
       firstProductIndex,
@@ -57,6 +55,7 @@ export const CategoryPage = () => {
           totalProducts={data?.data?.length}
           productsPerPage={productsPerPage}
           setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
         />
       </Wrapper>
     </>
