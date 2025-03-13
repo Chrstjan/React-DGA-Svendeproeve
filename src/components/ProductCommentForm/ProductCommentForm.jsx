@@ -48,7 +48,6 @@ export const ProductCommentForm = ({ productId, ownerId, setNewComment }) => {
     console.log(commentData);
 
     if (commentData) {
-      notify(true);
       setNewComment((prev) => prev + 1);
     }
   };

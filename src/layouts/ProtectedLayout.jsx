@@ -33,10 +33,10 @@ export const ProtectedLayout = () => {
             type="createButton"
           />
           <Wrapper headerType="noTop" type="iconContainer">
-            <img src="/icons/icons-mail-30.png" alt="mail icon" />
-            <img src="/icons/icons-info-30.png" alt="info icon" />
+            <img src="/icons/Mail.svg" alt="mail icon" />
+            <img src="/icons/Info.svg" alt="info icon" />
             <NavLink to="/profile">
-              <img src="/icons/icons-account-30.png" alt="account icon" />
+              <img src="/icons/Account.svg" alt="account icon" />
             </NavLink>
           </Wrapper>
         </Wrapper>

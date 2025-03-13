@@ -25,6 +25,11 @@
     @media (min-width: 1200px) {
       align-self: flex-end;
       padding-right: 3rem;
+      font-size: 22px;
+
+      @media (min-width: 1400px) {
+        align-self: center;
+      }
     }
   }
 
@@ -38,10 +43,17 @@
   &.info {
     background-image: url("./banner_image_4.png");
     text-align: center;
+    text-shadow: 1px 2px 1px #00000095;
 
     @media (min-width: 1200px) {
       width: 89vw;
       height: 28vh;
+
+      header {
+        h2 {
+          font-size: 36px;
+        }
+      }
 
       @media (min-width: 1400px) {
         width: 92vw;
@@ -49,7 +61,8 @@
       }
 
       p {
-        width: 360px;
+        width: 470px;
+        font-size: 20px;
       }
     }
   }
@@ -72,6 +85,10 @@
 
       h2 {
         text-align: left;
+
+        @media (min-width: 1200px) {
+          font-size: 24px;
+        }
       }
     }
   }
@@ -88,6 +105,10 @@
 
       h2 {
         text-align: left;
+
+        @media (min-width: 1200px) {
+          font-size: 24px;
+        }
       }
     }
   }

@@ -8,5 +8,8 @@ export const formatDate = (dateString) => {
     minute: "2-digit",
   };
 
-  return new Date(dateString).toLocaleDateString("dk-DK", options);
+  return new Date(dateString)
+    .toLocaleString("dk-DK", options)
+    .replace(".", "/")
+    .replace(",", " kl.");
 };

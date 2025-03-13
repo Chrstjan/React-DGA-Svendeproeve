@@ -78,7 +78,7 @@ export const LoginForm = () => {
             name="username"
             placeholder="Din email....."
           />
-          <img src="./icons/icons-at-sign-30.png" />
+          <img src="/icons/At sign.svg" alt="At Icon" />
         </span>
         {errors.username ? <p>{errors.username.message}</p> : null}
         <span className={s.inputContainer}>
@@ -100,7 +100,7 @@ export const LoginForm = () => {
             name="password"
             placeholder="Dit password......"
           />
-          <img src="./icons/icons-secure-30.png" />
+          <img src="/icons/Secure.svg" alt="Secure Icon" />
         </span>
         {errors.password ? <p>{errors.password.message}</p> : null}
         <p className={s.linkStyling}>
