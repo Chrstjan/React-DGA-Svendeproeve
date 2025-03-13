@@ -62,27 +62,35 @@ export const Footer = () => {
             Vil du være med på den grønne front? Tilmeld dig vores nyhedsbrev og
             få de seneste klima opdateringer direkte i din indbakke
           </p>
-          <form onSubmit={handleSubmit(handleFormSubmit)}>
-            <span className={s.inputContainer}>
-              <input
-                {...register("email", {
-                  required: "email is required",
-                  pattern: {
-                    value:
-                      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-                    message: "Invalid email format",
-                  },
-                  minLength: {
-                    value: 8,
-                    message: "email must be at least 8 characters",
-                  },
-                })}
-                type="email"
-              />
-              <input type="submit" value="Tilmeld" />
-              {errors.email ? <p>{errors.email.message}</p> : null}
-            </span>
-          </form>
+          {user?.access_token ? (
+            <form onSubmit={handleSubmit(handleFormSubmit)}>
+              <span className={s.inputContainer}>
+                <input
+                  {...register("email", {
+                    required: "email is required",
+                    pattern: {
+                      value:
+                        /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                      message: "Invalid email format",
+                    },
+                    minLength: {
+                      value: 8,
+                      message: "email must be at least 8 characters",
+                    },
+                  })}
+                  type="email"
+                />
+                <input type="submit" value="Tilmeld" />
+                {errors.email ? <p>{errors.email.message}</p> : null}
+              </span>
+            </form>
+          ) : (
+            <p>
+              <b>
+                Du skal være logget ind for at kunne tilmelde dig nyhedsbrev
+              </b>
+            </p>
+          )}
         </div>
         <div className={s.middleContainer}>
           <header>

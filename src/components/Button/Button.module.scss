@@ -3,6 +3,9 @@
 @use "../../styles/placeholders";
 
 .buttonStyling {
+  &:hover {
+    cursor: pointer;
+  }
   &.createButton {
     background: $light-green;
     color: $white;
@@ -27,12 +30,18 @@
   }
 
   &.accountBtn {
-    background: $green;
+    background: $white;
     text-align: center;
     width: 50vw;
-    border: 0;
-    color: $white;
+    border: 3px solid $green;
+    color: $green;
     padding: 0.7rem;
+
+    &.active {
+      background: $green;
+      color: $white;
+      border: 0;
+    }
 
     @media (min-width: 1200px) {
       width: 35vw;

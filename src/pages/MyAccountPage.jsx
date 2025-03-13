@@ -13,11 +13,13 @@ export const MyAccountPage = () => {
           action={() => setShowSelected("profile")}
           type="accountBtn"
           text="Min profil"
+          active={showSelected == "profile" ? "active" : ""}
         />
         <Button
           action={() => setShowSelected("products")}
           type="accountBtn"
           text="Mine Annoncer"
+          active={showSelected == "products" ? "active" : ""}
         />
       </Wrapper>
       <Wrapper headerType="noTop">

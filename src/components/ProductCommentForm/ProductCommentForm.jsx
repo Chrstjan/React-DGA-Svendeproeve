@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import s from "./ProductCommentForm.module.scss";
 import { Toastbar } from "../Toastbar/Toastbar";
 
-export const ProductCommentForm = ({ productId, ownerId }) => {
+export const ProductCommentForm = ({ productId, ownerId, setNewComment }) => {
   const { user } = useContext(UserContext);
 
   const {
@@ -49,6 +49,7 @@ export const ProductCommentForm = ({ productId, ownerId }) => {
 
     if (commentData) {
       notify(true);
+      setNewComment((prev) => prev + 1);
     }
   };
 
@@ -76,7 +77,7 @@ export const ProductCommentForm = ({ productId, ownerId }) => {
             }
           />
         </span>
-        {errors.username ? <p>{errors.username.message}</p> : null}
+        {errors.comment ? <p>{errors.comment.message}</p> : null}
         <span className={s.buttonContainer}>
           <input type="submit" value="Send" />
         </span>

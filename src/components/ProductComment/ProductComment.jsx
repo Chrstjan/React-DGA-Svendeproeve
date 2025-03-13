@@ -1,21 +1,18 @@
 import { useContext, useEffect, useState } from "react";
-import { useFetch } from "../../hooks/useFetch";
 import { UserContext } from "../../context/UserContext";
 import s from "./ProductComment.module.scss";
 import { formatDate } from "../../helpers/formatDate";
 
-export const ProductComment = ({ productSlug, ownerId }) => {
-  const { data, isLoading, error } = useFetch(
-    `http://localhost:4242/products/${productSlug}`
-  );
+export const ProductComment = ({ comments, ownerId }) => {
   const { user } = useContext(UserContext);
-  const [comments, setComments] = useState([]);
+  const [allComments, setAllComments] = useState([]);
 
   useEffect(() => {
-    if (data?.data?.comments?.length > 0) {
-      setComments(data?.data?.comments);
+    if (comments.length > 0) {
+      setAllComments(comments);
+      console.log(comments);
     }
-  }, [data]);
+  }, [comments]);
 
   const handleDelteComment = async (commentId) => {
     const res = await fetch(`http://localhost:4242/comment/${commentId}`, {
@@ -32,17 +29,17 @@ export const ProductComment = ({ productSlug, ownerId }) => {
     const data = await res.json();
 
     if (data?.message == "Success") {
-      const allComments = [...comments];
-      const filteredComments = allComments.filter((item) => {
+      const allProductComments = [...allComments];
+      const filteredComments = allProductComments.filter((item) => {
         return item?.id !== commentId;
       });
-      setComments(filteredComments);
+      setAllComments(filteredComments);
     }
   };
   return (
     <section className={s.commentsContainer}>
-      {comments && comments.length > 0
-        ? comments.map((item) => {
+      {allComments && allComments.length > 0
+        ? allComments.map((item) => {
             return (
               <div
                 className={

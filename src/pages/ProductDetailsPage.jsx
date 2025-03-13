@@ -4,7 +4,7 @@ import { CategoriesList } from "../components/CategoriesList/CategoriesList";
 import { useFetch } from "../hooks/useFetch";
 import { ProductDetailsCard } from "../components/ProductDetailsCard/ProductDetailsCard";
 import { ProductCommentForm } from "../components/ProductCommentForm/ProductCommentForm";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../context/UserContext";
 import { ProductComment } from "../components/ProductComment/ProductComment";
 
@@ -14,6 +14,26 @@ export const ProductDetailsPage = () => {
   const { data, isLoading, error } = useFetch(
     `http://localhost:4242/products/${productSlug}`
   );
+  //Bliver brugt til at re-render comments component hver gang der oprettes en besked
+  const [newComment, setNewComment] = useState(0);
+  const [comments, setComments] = useState([]);
+
+  useEffect(() => {
+    const getNewComments = async () => {
+      const res = await fetch(`http://localhost:4242/products/${productSlug}`);
+
+      if (!res.ok) {
+        console.error("Fejl i at hente comments");
+      }
+
+      const data = await res.json();
+
+      if (data?.data?.comments?.length > 0) {
+        setComments(data?.data?.comments);
+      }
+    };
+    getNewComments();
+  }, [newComment]);
 
   if (isLoading) {
     return <h2>loading...</h2>;
@@ -45,15 +65,13 @@ export const ProductDetailsPage = () => {
           <ProductCommentForm
             productId={data?.data?.id}
             ownerId={data?.data?.owner?.id}
+            setNewComment={setNewComment}
           />
         ) : null}
       </Wrapper>
       <Wrapper headerType="noTop" type="commentContainer">
         {data && data?.data ? (
-          <ProductComment
-            productSlug={productSlug}
-            ownerId={data?.data?.owner?.id}
-          />
+          <ProductComment comments={comments} ownerId={data?.data?.owner?.id} />
         ) : null}
       </Wrapper>
     </>

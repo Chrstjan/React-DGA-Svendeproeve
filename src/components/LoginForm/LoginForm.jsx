@@ -7,7 +7,7 @@ import s from "./LoginForm.module.scss";
 import { Toastbar } from "../Toastbar/Toastbar";
 
 export const LoginForm = () => {
-  const { user, loginUser, logoutUser } = useContext(UserContext);
+  const { loginUser } = useContext(UserContext);
   const navigate = useNavigate();
 
   const {
