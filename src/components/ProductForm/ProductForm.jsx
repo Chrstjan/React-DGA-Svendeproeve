@@ -51,12 +51,14 @@ export const ProductForm = () => {
       body: JSON.stringify(formData),
     });
 
+    if (!res.ok) {
+      notify(false);
+    }
+
     const productData = await res.json();
 
-    if (productData) {
+    if (productData.message == "Record created") {
       notify(true);
-    } else {
-      notify(false);
     }
   };
 
@@ -67,13 +69,13 @@ export const ProductForm = () => {
           <label htmlFor="title">Title</label>
           <input
             {...register("title", {
-              required: "title is required",
+              required: "title skal indeholde noget",
               pattern: {
-                message: "Invalid title format",
+                message: "Ikke gyldig title",
               },
               minLength: {
                 value: 4,
-                message: "title must be at least 4 characters",
+                message: "title skal være mindst 4 bogstaver",
               },
             })}
             type="text"
@@ -95,13 +97,13 @@ export const ProductForm = () => {
           <label htmlFor="description">Annonce tekst</label>
           <textarea
             {...register("description", {
-              required: "description is required",
+              required: "beskrivelse skal indeholde noget",
               pattern: {
-                message: "Invalid description format",
+                message: "Ikke gyldig beskrivelse",
               },
               minLength: {
                 value: 10,
-                message: "description must be at least 10 characters",
+                message: "beskrivelse skal være mindst 10 bogstaver",
               },
             })}
             id="description"
@@ -114,13 +116,13 @@ export const ProductForm = () => {
           <label htmlFor="image">URL til billede</label>
           <input
             {...register("image", {
-              required: "image url is required",
+              required: "Billede sti skal indeholde noget",
               pattern: {
-                message: "Invalid image url format",
+                message: "ikke gyldigt Billede sti",
               },
               minLength: {
                 value: 8,
-                message: "image url must be at least 8 characters",
+                message: "Billede sti Skal være mindst 8 bogstaver",
               },
             })}
             type="text"
@@ -134,13 +136,13 @@ export const ProductForm = () => {
           <label htmlFor="price">Pris</label>
           <input
             {...register("price", {
-              required: "price is required",
+              required: "Pris er påkrævet",
               pattern: {
-                message: "Invalid price format",
+                message: "Ikke gyldigt pris",
               },
               minLength: {
-                value: 2,
-                message: "price must be at least 2 characters",
+                value: 1,
+                message: "Pris skal være mindst et cifre",
               },
             })}
             type="number"

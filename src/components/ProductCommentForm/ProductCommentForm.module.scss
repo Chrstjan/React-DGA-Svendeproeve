@@ -17,5 +17,9 @@
 
   .buttonContainer {
     margin-right: 4rem;
+
+    @media (min-width: 1200px) {
+      margin-right: 20.5rem;
+    }
   }
 }

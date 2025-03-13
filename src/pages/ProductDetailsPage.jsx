@@ -25,11 +25,11 @@ export const ProductDetailsPage = () => {
 
   return (
     <>
-      <Wrapper>
+      <Wrapper type="productsListing">
         <CategoriesList />
-      </Wrapper>
-      <Wrapper headerType="noTop">
-        {data ? <ProductDetailsCard data={data?.data} /> : null}
+        <Wrapper headerType="noTop">
+          {data ? <ProductDetailsCard data={data?.data} /> : null}
+        </Wrapper>
       </Wrapper>
       <Wrapper
         headerType="formHeader"
@@ -48,7 +48,7 @@ export const ProductDetailsPage = () => {
           />
         ) : null}
       </Wrapper>
-      <Wrapper headerType="noTop" type="rowWrapper">
+      <Wrapper headerType="noTop" type="commentContainer">
         {data && data?.data ? (
           <ProductComment
             productSlug={productSlug}

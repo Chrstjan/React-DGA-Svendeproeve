@@ -87,12 +87,14 @@ export const AccountForm = () => {
       body: JSON.stringify(formData),
     });
 
+    if (!res.ok) {
+      notify(false);
+    }
+
     const userData = await res.json();
 
-    if (userData) {
+    if (userData.message == "User updated successfully") {
       notify(true);
-    } else {
-      notify(false);
     }
   };
 
@@ -125,13 +127,13 @@ export const AccountForm = () => {
             <label htmlFor="firstname">Fornavn</label>
             <input
               {...register("firstname", {
-                required: "firstname is required",
+                required: "Fornavn er påkrævet",
                 pattern: {
-                  message: "Invalid firstname format",
+                  message: "Ikke gyldigt fornavn",
                 },
                 minLength: {
                   value: 2,
-                  message: "firstname must be at least 2 characters",
+                  message: "Fornavn skal være mindst 2 bogstaver",
                 },
               })}
               type="text"
@@ -144,13 +146,13 @@ export const AccountForm = () => {
             <label htmlFor="lastname">Efternavn</label>
             <input
               {...register("lastname", {
-                required: "lastname is required",
+                required: "Efternavn er påkrævet",
                 pattern: {
-                  message: "Invalid lastname format",
+                  message: "Ikke gyldigt efternavn",
                 },
                 minLength: {
                   value: 4,
-                  message: "lastname must be at least 4 characters",
+                  message: "Efternavn skal være mindst 4 bogstaver",
                 },
               })}
               type="text"
@@ -163,13 +165,13 @@ export const AccountForm = () => {
             <label htmlFor="address">Adresse</label>
             <input
               {...register("address", {
-                required: "address is required",
+                required: "Adresse er påkrævet",
                 pattern: {
-                  message: "Invalid address format",
+                  message: "Ikke gyldig adresse",
                 },
                 minLength: {
                   value: 4,
-                  message: "address must be at least 4 characters",
+                  message: "Adresse skal være mindst 4 bogstaver",
                 },
               })}
               type="text"
@@ -182,13 +184,13 @@ export const AccountForm = () => {
             <label htmlFor="zipcode">Postnummer</label>
             <input
               {...register("zipcode", {
-                required: "zipcode is required",
+                required: "Postnummer er påkrævet",
                 pattern: {
-                  message: "Invalid zipcode format",
+                  message: "Ikke gyldigt postnummer",
                 },
                 minLength: {
                   value: 4,
-                  message: "zipcode must be at least 4 characters",
+                  message: "Postnummer skal være mindst 4 bogstaver",
                 },
               })}
               type="text"
@@ -201,13 +203,13 @@ export const AccountForm = () => {
             <label htmlFor="phone">Telefon</label>
             <input
               {...register("phone", {
-                required: "phone is required",
+                required: "Telefon er påkrævet",
                 pattern: {
-                  message: "Invalid phone format",
+                  message: "Ikke gyldigt telefon nummer",
                 },
                 minLength: {
                   value: 8,
-                  message: "phone must be at least 8 characters",
+                  message: "Telefon skal være mindst 8 bogstaver",
                 },
               })}
               type="number"
@@ -220,15 +222,15 @@ export const AccountForm = () => {
             <label htmlFor="phone">Email</label>
             <input
               {...register("email", {
-                required: "email is required",
+                required: "Email er påkrævet",
                 pattern: {
                   value:
                     /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-                  message: "Invalid email format",
+                  message: "Ikke gyldig email",
                 },
                 minLength: {
                   value: 8,
-                  message: "email must be at least 8 characters",
+                  message: "Email skal være mindst 8 bogstaver",
                 },
               })}
               type="email"

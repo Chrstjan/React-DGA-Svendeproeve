@@ -2,40 +2,57 @@
 @use "../../styles/variables" as *;
 @use "../../styles/placeholders";
 
-.customerStyling {
-  @include m.flexBox(column, flex-end, center, 0.5rem);
+.commentsContainer {
+  @include m.flexBox(column, center, center, 1rem);
+  width: 45%;
 
-  p {
-    margin: 0;
-    align-self: flex-end;
+  .customerStyling {
+    @include m.flexBox(column, flex-end, center, 0.5rem);
+
+    @media (min-width: 1200px) {
+      align-self: flex-end;
+    }
+
+    p {
+      margin: 0;
+      align-self: flex-end;
+    }
   }
-}
 
-.ownerStyling {
-  @include m.flexBox(column, flex-start, center, 0.5rem);
+  .ownerStyling {
+    @include m.flexBox(column, flex-start, center, 0.5rem);
 
-  p {
-    margin: 0;
-    align-self: flex-start;
+    @media (min-width: 1200px) {
+      align-self: flex-start;
+    }
+
+    p {
+      margin: 0;
+      align-self: flex-start;
+    }
+
+    .deleteStyling {
+      align-self: flex-end;
+    }
+  }
+
+  .commentContainer {
+    background: $white;
+    border: 2px solid $light-green;
+    padding: 0.3rem 0.7rem;
+    width: 200px;
+
+    @media (min-width: 1200px) {
+      padding: 0.8rem 1.2rem 0.8rem 0.4rem;
+    }
+
+    p {
+      max-width: 250px;
+    }
   }
 
   .deleteStyling {
     align-self: flex-end;
+    color: $red;
   }
-}
-
-.commentContainer {
-  background: $white;
-  border: 2px solid $light-green;
-  padding: 0.3rem 0.7rem;
-  width: 200px;
-
-  p {
-    max-width: 250px;
-  }
-}
-
-.deleteStyling {
-  align-self: flex-end;
-  color: $red;
 }

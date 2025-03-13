@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import s from "./ProductDetailsCard.module.scss";
 
 export const ProductDetailsCard = ({ data }) => {

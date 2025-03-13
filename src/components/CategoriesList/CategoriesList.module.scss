@@ -4,13 +4,21 @@
 
 .categoriesContainer {
   @media (min-width: 1200px) {
-    margin-left: 4rem;
+    margin-left: 1rem;
 
     @media (min-width: 1400px) {
       margin: 0;
     }
   }
+
+  h3 {
+    text-align: center;
+    width: 130px;
+  }
   ul {
+    margin: 0;
+    padding: 0;
+    padding-left: 1rem;
     li {
       list-style: none;
 
@@ -20,6 +28,7 @@
 
         &.activeLink {
           color: $black;
+          font-style: bold;
         }
       }
     }

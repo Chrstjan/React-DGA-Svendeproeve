@@ -94,6 +94,11 @@
     }
   }
 
+  &.commentContainer {
+    @include m.flexBox(column, center, center, 1rem);
+    margin-top: 2rem;
+  }
+
   &.infoImage {
     @include m.flexBox(column, center, center, 1rem);
 

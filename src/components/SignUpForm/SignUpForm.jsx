@@ -49,12 +49,14 @@ export const SignUpForm = () => {
       body: JSON.stringify(formData),
     });
 
+    if (!res.ok) {
+      notify(false);
+    }
+
     const userData = await res.json();
 
-    if (userData) {
+    if (userData?.message == "User created successfully") {
       notify(true);
-    } else {
-      notify(false);
     }
   };
 
@@ -65,15 +67,15 @@ export const SignUpForm = () => {
           <label htmlFor="username">Email</label>
           <input
             {...register("username", {
-              required: "username is required",
+              required: "Email er påkrævet",
               pattern: {
                 value:
                   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-                message: "Invalid username format",
+                message: "Ikke gyldig email",
               },
               minLength: {
                 value: 8,
-                message: "username must be at least 8 characters",
+                message: "Email skal være mindst 8 bogstaver",
               },
             })}
             type="email"
@@ -87,14 +89,14 @@ export const SignUpForm = () => {
           <label htmlFor="password">Password</label>
           <input
             {...register("password", {
-              required: "password is required",
+              required: "Password er påkrævet",
               pattern: {
                 value: /^[A-Za-z\d@$!%*?&]{5,}$/,
-                message: "Invalid password format",
+                message: "Ikke Password kodeord",
               },
               minLength: {
                 value: 5,
-                message: "password must be at least 5 characters",
+                message: "Password skal være mindst 5 bogstaver",
               },
             })}
             type="password"
@@ -108,13 +110,13 @@ export const SignUpForm = () => {
           <label htmlFor="firstname">Fornavn</label>
           <input
             {...register("firstname", {
-              required: "firstname is required",
+              required: "Fornavn er påkrævet",
               pattern: {
-                message: "Invalid firstname format",
+                message: "Ikke gyldigt fornavn",
               },
               minLength: {
                 value: 2,
-                message: "password must be at least 2 characters",
+                message: "Fornavn skal være mindst 2 bogstaver",
               },
             })}
             type="text"
@@ -128,13 +130,13 @@ export const SignUpForm = () => {
           <label htmlFor="lastname">Efternavn</label>
           <input
             {...register("lastname", {
-              required: "lastname is required",
+              required: "Efternavn er påkrævet",
               pattern: {
-                message: "Invalid lastname format",
+                message: "Ikke gyldigt efternavn",
               },
               minLength: {
                 value: 5,
-                message: "lastname must be at least 5 characters",
+                message: "Efternavn skal være mindst 5 bogstaver",
               },
             })}
             type="text"
@@ -148,13 +150,13 @@ export const SignUpForm = () => {
           <label htmlFor="address">Adresse</label>
           <input
             {...register("address", {
-              required: "address is required",
+              required: "Adresse påkrævet",
               pattern: {
-                message: "Invalid address format",
+                message: "Ikke gyldig adresse",
               },
               minLength: {
                 value: 5,
-                message: "address must be at least 5 characters",
+                message: "Adresse skal være mindst 5 bogstaver",
               },
             })}
             type="text"
@@ -168,13 +170,13 @@ export const SignUpForm = () => {
           <label htmlFor="town">By</label>
           <input
             {...register("town", {
-              required: "town is required",
+              required: "By er påkrævet",
               pattern: {
-                message: "Invalid town format",
+                message: "Ikke gyldig by",
               },
               minLength: {
                 value: 4,
-                message: "town must be at least 4 characters",
+                message: "By skal være mindst 4 bogstaver",
               },
             })}
             type="text"
@@ -188,13 +190,13 @@ export const SignUpForm = () => {
           <label htmlFor="zipcode">Postnummer</label>
           <input
             {...register("zipcode", {
-              required: "zipcode is required",
+              required: "Postnummer er påkrævet",
               pattern: {
-                message: "Invalid zipcode format",
+                message: "Ikke gyldigt postnummer",
               },
               minLength: {
                 value: 4,
-                message: "zipcode must be at least 4 characters",
+                message: "Postnummer skal være mindst 4 bogstaver",
               },
             })}
             type="text"

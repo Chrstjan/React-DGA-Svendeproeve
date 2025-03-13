@@ -40,12 +40,15 @@ export const ProductCommentForm = ({ productId, ownerId }) => {
       body: JSON.stringify(formData),
     });
 
+    if (!res.ok) {
+      notify(false);
+    }
+
     const commentData = await res.json();
+    console.log(commentData);
 
     if (commentData) {
       notify(true);
-    } else {
-      notify(false);
     }
   };
 
@@ -55,13 +58,13 @@ export const ProductCommentForm = ({ productId, ownerId }) => {
         <span className={s.inputContainer}>
           <textarea
             {...register("comment", {
-              required: "comment is required",
+              required: "Kommentar skal indeholde noget",
               pattern: {
-                message: "Invalid comment format",
+                message: "Ikke gyldig kommentar",
               },
               minLength: {
                 value: 8,
-                message: "comment must be at least 8 characters",
+                message: "Kommentar skal være mindst 8 bogstaver.",
               },
             })}
             id="comment"

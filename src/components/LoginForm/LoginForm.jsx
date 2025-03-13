@@ -42,14 +42,16 @@ export const LoginForm = () => {
       body: JSON.stringify(formData),
     });
 
+    if (!res.ok) {
+      notify(false);
+    }
+
     const userData = await res.json();
 
-    if (userData) {
+    if (userData.message == "Success") {
       loginUser(userData?.data);
       notify(true);
       navigate("/profile");
-    } else {
-      notify(false);
     }
   };
 
@@ -60,15 +62,15 @@ export const LoginForm = () => {
           <label htmlFor="username">Email</label>
           <input
             {...register("username", {
-              required: "username is required",
+              required: "Email er påkrævet",
               pattern: {
                 value:
                   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-                message: "Invalid username format",
+                message: "Ikke gyldig email",
               },
               minLength: {
                 value: 8,
-                message: "username must be at least 8 characters",
+                message: "Email skal være mindst 8 bogstaver",
               },
             })}
             type="email"
@@ -83,14 +85,14 @@ export const LoginForm = () => {
           <label htmlFor="password">Password</label>
           <input
             {...register("password", {
-              required: "password is required",
+              required: "Password er påkrævet",
               pattern: {
                 value: /^[A-Za-z\d@$!%*?&]{5,}$/,
-                message: "Invalid password format",
+                message: "Ikke gyldigt password",
               },
               minLength: {
                 value: 5,
-                message: "password must be at least 5 characters",
+                message: "Password skal være mindst 5 bogstaver",
               },
             })}
             type="password"

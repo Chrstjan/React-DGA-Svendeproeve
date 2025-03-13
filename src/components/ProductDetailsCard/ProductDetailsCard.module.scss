@@ -5,6 +5,21 @@
 .detailStyling {
   @include m.flexBox(column, center, flex-start, 0rem);
 
+  @media (min-width: 1200px) {
+    margin-right: 20rem;
+  }
+
+  img {
+    width: 100%;
+    object-fit: contain;
+
+    @media (min-width: 1200px) {
+      object-fit: fill;
+      height: 40vh;
+      width: 40vw;
+    }
+  }
+
   figcaption {
     h2 {
       text-align: left;

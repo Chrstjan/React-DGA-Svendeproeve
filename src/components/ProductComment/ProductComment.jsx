@@ -40,7 +40,7 @@ export const ProductComment = ({ productSlug, ownerId }) => {
     }
   };
   return (
-    <>
+    <section className={s.commentsContainer}>
       {comments && comments.length > 0
         ? comments.map((item) => {
             return (
@@ -52,12 +52,12 @@ export const ProductComment = ({ productSlug, ownerId }) => {
               >
                 {item?.user?.id == ownerId ? (
                   <p>
-                    {item?.user?.firstname} (sælger):{" "}
+                    {item?.user?.firstname} (sælger): d.{" "}
                     {formatDate(item?.createdAt)}
                   </p>
                 ) : (
                   <p>
-                    {item?.user?.firstname}: {formatDate(item?.createdAt)}
+                    {item?.user?.firstname}: d. {formatDate(item?.createdAt)}
                   </p>
                 )}
                 <div className={s.commentContainer}>
@@ -75,6 +75,6 @@ export const ProductComment = ({ productSlug, ownerId }) => {
             );
           })
         : null}
-    </>
+    </section>
   );
 };

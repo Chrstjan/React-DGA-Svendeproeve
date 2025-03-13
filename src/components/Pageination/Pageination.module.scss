@@ -5,6 +5,11 @@
 .containerStyling {
   @include m.flexBox(row, center, center, 1rem);
 
+  @media (min-width: 1200px) {
+    justify-content: flex-end;
+    margin-right: 3rem;
+  }
+
   button {
     border: 0;
     background: transparent;
