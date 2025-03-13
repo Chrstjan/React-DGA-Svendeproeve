@@ -32,8 +32,18 @@
   &.featuredProducts {
     img {
       display: block;
-      width: 100%;
+      //Mit styling breaker på mobile så måtte lappeløse det ned important
+      width: 280px !important;
+
+      @media (min-width: 1200px) {
+        width: 13vw !important;
+      }
+
+      @media (min-width: 1400px) {
+        width: 12vw !important;
+      }
     }
+
     @media (max-width: 1200px) {
       margin: 1rem 0.5rem;
 
@@ -43,12 +53,6 @@
 
       &:last-of-type {
         margin-right: 1rem;
-      }
-      img {
-        display: block;
-        object-fit: cover;
-        height: 20vh;
-        width: 13vw;
       }
     }
 
