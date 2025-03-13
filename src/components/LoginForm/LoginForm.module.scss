@@ -52,14 +52,15 @@
     align-self: flex-start;
     width: 200px;
 
+    .formLink {
+      color: $green;
+      text-decoration: underline;
+    }
+
     @media (min-width: 1200px) {
       margin-left: 20.5rem;
       align-self: flex-start;
       width: fit-content;
-    }
-
-    a {
-      color: $green;
     }
   }
 

@@ -1,12 +1,22 @@
+import { useState } from "react";
 import { DonationCard } from "../components/DonationCard/DonationCard";
 import { LoginForm } from "../components/LoginForm/LoginForm";
+import { SignUpForm } from "../components/SignUpForm/SignUpForm";
 import { Wrapper } from "../components/Wrapper/Wrapper";
 
 export const LoginPage = () => {
+  const [showform, setShowForm] = useState("login");
   return (
     <>
-      <Wrapper headerType="formHeader" text="Velkommen tilbage">
-        <LoginForm />
+      <Wrapper
+        headerType="formHeader"
+        text={showform == "login" ? "Velkommen tilbage" : "Opret en konto"}
+      >
+        {showform == "login" ? (
+          <LoginForm setShowForm={setShowForm} />
+        ) : (
+          <SignUpForm setShowForm={setShowForm} />
+        )}
       </Wrapper>
       <Wrapper type="infoImage">
         <DonationCard

@@ -45,6 +45,11 @@
     align-self: flex-start;
     width: 200px;
 
+    .formLink {
+      color: $green;
+      text-decoration: underline;
+    }
+
     @media (min-width: 1200px) {
       align-self: center;
       margin-right: 7rem;

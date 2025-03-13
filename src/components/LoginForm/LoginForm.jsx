@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import s from "./LoginForm.module.scss";
 import { Toastbar } from "../Toastbar/Toastbar";
 
-export const LoginForm = () => {
+export const LoginForm = ({ setShowForm }) => {
   const { loginUser } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -105,7 +105,9 @@ export const LoginForm = () => {
         {errors.password ? <p>{errors.password.message}</p> : null}
         <p className={s.linkStyling}>
           Har du ikke allerede en konto? Klik{" "}
-          <NavLink to="/signup">her</NavLink>
+          <span onClick={() => setShowForm("signup")} className={s.formLink}>
+            her
+          </span>
           {""} for at gå til sign up
         </p>
         <span className={s.buttonContainer}>

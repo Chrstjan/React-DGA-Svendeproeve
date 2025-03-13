@@ -10,12 +10,71 @@
   }
 
   @media (min-width: 1200px) {
-    height: 25vh;
-    width: 40vw;
+    width: 25vw;
+    img {
+      display: block;
+      object-fit: cover;
+      height: 20vh;
+      width: 100%;
+    }
 
     @media (min-width: 1400px) {
       height: 25vh;
       width: 25vw;
+    }
+  }
+
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &.featuredProducts {
+    img {
+      display: block;
+      width: 100%;
+    }
+    @media (max-width: 1200px) {
+      margin: 1rem 0.5rem;
+
+      &:first-of-type {
+        margin-left: 3rem !important;
+      }
+
+      &:last-of-type {
+        margin-right: 1rem;
+      }
+      img {
+        display: block;
+        object-fit: cover;
+        height: 20vh;
+        width: 13vw;
+      }
+    }
+
+    @media (min-width: 1400px) {
+      &:first-of-type {
+        margin-left: 3rem !important;
+      }
+    }
+  }
+
+  &.featuredCategories {
+    @media (min-width: 1200px) {
+      margin: 1rem 0.5rem;
+      &:first-of-type {
+        margin-left: 3rem;
+      }
+
+      &:last-of-type {
+        margin-right: 3rem;
+      }
+      img {
+        display: block;
+        object-fit: cover;
+        height: 15vh;
+        width: 14vw;
+      }
     }
   }
 
@@ -29,16 +88,6 @@
           margin: 0;
         }
       }
-    }
-  }
-
-  img {
-    width: 100%;
-    object-fit: cover;
-
-    @media (min-width: 1200px) {
-      height: 200px;
-      object-fit: fill;
     }
   }
 
@@ -66,10 +115,6 @@
   .topStyling {
     background: $light-green;
     width: 100%;
-
-    @media (min-width: 1200px) {
-      width: 100%;
-    }
 
     a {
       color: $white;

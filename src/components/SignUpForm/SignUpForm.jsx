@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import { Toastbar } from "../Toastbar/Toastbar";
 import s from "./SignUpForm.module.scss";
 
-export const SignUpForm = () => {
+export const SignUpForm = ({ setShowForm }) => {
   const navigate = useNavigate();
 
   const {
@@ -208,7 +208,10 @@ export const SignUpForm = () => {
         {errors.zipcode ? <p>{errors.zipcode.message}</p> : null}
         <p className={s.linkStyling}>
           Har du allerede en konto hos os? Klik{" "}
-          <NavLink to="/login">her</NavLink> for at vende tilbage til login
+          <span onClick={() => setShowForm("login")} className={s.formLink}>
+            her
+          </span>{" "}
+          for at vende tilbage til login
         </p>
         <div className={s.buttonContainer}>
           <span className={s.termsContainer}>

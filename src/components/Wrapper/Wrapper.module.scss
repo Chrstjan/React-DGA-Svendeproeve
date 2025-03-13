@@ -16,6 +16,10 @@
 
   &.formHeader {
     text-align: center;
+
+    @media (min-width: 1200px) {
+      font-size: 27px;
+    }
   }
 }
 
@@ -58,7 +62,8 @@
 
     @media (min-width: 1200px) {
       flex-direction: row;
-      margin: 0rem 1rem;
+      gap: 0rem;
+      padding: 0rem 1rem;
     }
   }
 

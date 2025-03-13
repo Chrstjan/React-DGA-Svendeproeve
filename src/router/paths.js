@@ -28,11 +28,11 @@ export const paths = [
     element: LoginPage,
     id: 4,
   },
-  {
-    path: "/signup",
-    element: SignUpPage,
-    id: 5,
-  },
+  // {
+  //   path: "/signup",
+  //   element: SignUpPage,
+  //   id: 5,
+  // },
   {
     path: "/*",
     element: PageNotFound,
