@@ -4,14 +4,15 @@
 
 .commentsContainer {
   @include m.flexBox(column, center, center, 1rem);
-  width: 45%;
+  width: 87%;
+
+  @media (min-width: 1200px) {
+    width: 45%;
+  }
 
   .customerStyling {
     @include m.flexBox(column, flex-end, center, 0.5rem);
-
-    @media (min-width: 1200px) {
-      align-self: flex-end;
-    }
+    align-self: flex-end;
 
     p {
       margin: 0;
@@ -21,10 +22,7 @@
 
   .ownerStyling {
     @include m.flexBox(column, flex-start, center, 0.5rem);
-
-    @media (min-width: 1200px) {
-      align-self: flex-start;
-    }
+    align-self: flex-start;
 
     p {
       margin: 0;

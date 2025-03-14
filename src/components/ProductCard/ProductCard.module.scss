@@ -78,6 +78,10 @@
         object-fit: cover;
         height: 15vh;
         width: 14vw;
+
+        @media (min-width: 1400px) {
+          width: 14.9vw;
+        }
       }
     }
   }

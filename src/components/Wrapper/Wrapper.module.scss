@@ -21,6 +21,15 @@
       font-size: 27px;
     }
   }
+
+  &.commentHeader {
+    text-align: center;
+    color: $green;
+
+    @media (min-width: 1200px) {
+      font-size: 27px;
+    }
+  }
 }
 
 .wrapperStyling {

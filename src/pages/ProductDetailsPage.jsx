@@ -52,7 +52,7 @@ export const ProductDetailsPage = () => {
         </Wrapper>
       </Wrapper>
       <Wrapper
-        headerType="formHeader"
+        headerType="commentHeader"
         text={
           !user.access_token
             ? "Du skal være logget ind for at sende en kommentar"
