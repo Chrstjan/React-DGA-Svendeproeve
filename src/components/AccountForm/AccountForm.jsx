@@ -283,6 +283,7 @@ export const AccountForm = () => {
               type="deleteBtn"
               text="slet profil"
             />
+            <Button action={() => logoutUser()} type="deleteBtn" text="Log ud"/>
             <input type="submit" value="gem ændringer" />
           </span>
         </div>
